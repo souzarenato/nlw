@@ -1,8 +1,5 @@
 
-import { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-
-import { AuthContext } from '../App';
 
 import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg'
@@ -11,11 +8,12 @@ import googleIcon from '../assets/images/google-icon.svg'
 import { Button } from '../components/Button';
 
 import '../styles/auth.scss';
+import { useAuth } from '../hooks/useAuth';
 
 
 export function Home() {
     const history = useHistory(); // sempre que começar com use no react indica um hook
-    const { user, signWithGoogle } = useContext(AuthContext)
+    const { user, signWithGoogle } = useAuth()
 
     async function handleCreateRoom() {
         if (!user) {

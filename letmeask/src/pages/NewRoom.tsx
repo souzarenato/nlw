@@ -6,8 +6,11 @@ import googleIcon from '../assets/images/google-icon.svg'
 
 import '../styles/auth.scss';
 import { Button } from '../components/Button';
+import { useAuth } from '../hooks/useAuth';
 
 export function NewRoom() {
+    const { user, signWithGoogle } = useAuth();
+
     return (
         <div id="page-auth">
             <aside>
